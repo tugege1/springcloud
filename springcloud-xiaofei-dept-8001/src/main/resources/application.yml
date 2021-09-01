@@ -2,3 +2,7 @@
 server:
   port: 8001
 
+#配置mybatis
+mybatis:
+  type-aliases-package: com.aaa.springcloud.entity
+  mapper-locations: mapper/*.xml
