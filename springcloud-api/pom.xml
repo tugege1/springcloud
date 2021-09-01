@@ -16,7 +16,7 @@
     </properties>
 
 
-    <!--  子模块:添加依赖  需要用到哪个添加哪个-->
+    <!--  子模块:添加依赖  需要用到哪个添加哪个;添加后刷新maven,看右边是否添加成功。养成习惯(狂神)-->
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
