@@ -9,6 +9,8 @@ mybatis:
 
 #配置Spring
 spring:
+  application:
+    name: springcloud-tigong-dept
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

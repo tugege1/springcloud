@@ -30,8 +30,9 @@ public class DeptController {
     }
 
     //新增部门
-    @GetMapping("/addDept")
-    public String addDept(Dept dept) {
+    @PostMapping("/addDept")
+    public String addDept(@RequestBody Dept dept) {
+        System.out.println(dept);
         boolean insert = deptService.addDept(dept);
         return insert == true ? "成功" : "失败";
     }

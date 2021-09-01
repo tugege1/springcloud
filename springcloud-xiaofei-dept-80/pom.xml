@@ -17,5 +17,31 @@
     </properties>
 
     <!--服务消费者-->
+    <!--添加依赖-->
+    <dependencies>
+        <!--引入实体类(需要用到)-->
+        <dependency>
+            <groupId>com.aaa</groupId>
+            <artifactId>springcloud-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--springboot web依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
+
+        <!--转成json-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <!--热部署 添加后直接build不需要再重启-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>
