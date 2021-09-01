@@ -16,6 +16,7 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <!--服务提供者-->
     <!--  子模块:添加依赖  需要用到哪个添加哪个-->
     <!--  添加配置文件-->
 
@@ -58,7 +59,7 @@
         </dependency>
 
 
-        <!--热部署-->
+        <!--热部署 添加后直接build不需要再重启-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
