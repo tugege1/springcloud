@@ -22,9 +22,12 @@ spring:
 #Eureka配置，将提供者注册进服务器
 eureka:
   client:
-    #服务端地址  单机模式下注册进服务端
+    #服务端地址
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      #defaultZone: http://localhost:7001/ #单机模式下注册进服务端
+
+      #集群模式下注册进三个服务器  路径要有eureka，不然注册不进去
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   instance:
     #修改默认的描述信息
     instance-id: ${server.port}-miaoshu

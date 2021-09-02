@@ -1,0 +1,19 @@
+#配置端口号
+server:
+  port: 7002
+
+
+#Eureka配置
+eureka:
+  instance:
+    hostname: eureka7002.com       #设置为不同名称，模拟不同机器
+  client:
+    register-with-eureka: false  #是否向Eureka中心注册自己
+    fetch-registry: false        #fetch-registry如果为false，则表示自己为注册中心
+    service-url:
+      #重写Eureka的默认端口以及访问路径 --->http://localhost:7001/eureka/
+
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   #这是单机模式
+
+      #使用集群模式  注意:路径后面要多一个/
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/
