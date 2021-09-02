@@ -31,6 +31,6 @@ eureka:
 
 #Eureka的详细信息，可以添加key-value样式提示微服务的构建者
 info:
-  app.name: TCH~
-  company.name: com.baidu.com
+  app.name: Tujiji~
+  company.name: com.aaa.springcloud
 

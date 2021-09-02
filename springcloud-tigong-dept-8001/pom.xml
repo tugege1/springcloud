@@ -76,6 +76,19 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <!--actuator完善监控信息   Eureka监控信息需要添加这个依赖，不然不生效-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <!-- 和lombok下面有依赖冲突，需要忽略下面这个依赖 -->
+            <exclusions>
+                <exclusion>
+                    <artifactId>micrometer-core</artifactId>
+                    <groupId>io.micrometer</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
 
     </dependencies>
 </project>
