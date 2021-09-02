@@ -10,10 +10,27 @@ mybatis:
 #配置Spring
 spring:
   application:
-    name: springcloud-tigong-dept
+    name: springcloud-tigong-ip  #在注册中心显示
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3307/yhsktest?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
     username: root
     password: root
+
+
+#Eureka配置，将提供者注册进服务器
+eureka:
+  client:
+    #服务端地址  单机模式下注册进服务端
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    #修改默认的描述信息
+    instance-id: ${server.port}-miaoshu
+
+#Eureka的详细信息，可以添加key-value样式提示微服务的构建者
+info:
+  app.name: TCH~
+  company.name: com.baidu.com
+

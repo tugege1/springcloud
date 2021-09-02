@@ -70,5 +70,12 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+
+        <!--添加Eureka客户端注解，用来注册进服务端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
     </dependencies>
 </project>
