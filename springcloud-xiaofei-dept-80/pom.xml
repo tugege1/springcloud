@@ -43,5 +43,23 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+
+        <!--改造80消费者  添加Ribbon依赖-->
+        <!--添加Eureka依赖  Ribbon需要从注册中心获取服务-->
+        <!--最新euraka依赖,其中包含了Ribbon-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--不需要这个依赖   不要随便添加依赖，添加了再删除就会出现依赖冲突，烦死-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
+
+
+
     </dependencies>
 </project>
