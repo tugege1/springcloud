@@ -1,0 +1,13 @@
+#配置端口
+server:
+  port: 90
+
+#消费者只负责调用接口   不需要就行数据库连接，不需要就不写
+
+
+#添加Eureka配置
+eureka:
+  client:
+    register-with-eureka: false  #不向Eureka注册自己
+    service-url: # 从三个注册中心中随机取一个去访问
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
