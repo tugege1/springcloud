@@ -24,6 +24,7 @@
         <module>springcloud-tigong-dept-8002</module>
         <module>springcloud-tigong-dept-8003</module>
         <module>springcloud-xiaofei-dept-feign</module>
+        <module>springcloud-tigong-hystrix-8001</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
