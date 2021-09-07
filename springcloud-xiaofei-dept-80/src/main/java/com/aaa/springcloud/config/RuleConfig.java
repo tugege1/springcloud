@@ -2,6 +2,7 @@ package com.aaa.springcloud.config;
 
 
 import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,6 +23,7 @@ public class RuleConfig {
         //return new RoundRobinRule();//使用轮询策略
         //return new AvailabilityFilteringRule();//使用轮询策略
         //return new RetryRule();//使用轮询策略
-        return new MyRondomRule(); //自定义规则也在这里配置
+        //new MyRondomRule(); //自定义规则也在这里配置
+        return new RandomRule();
     }
 }

@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 //使用这个注解，使用value指定服务名。和ribbon原理一样。从注册中心拿这个服务，代替路径
-@FeignClient(value = "springcloud-tigong-ip")
+//添加Hystrix降级:FallBackFactory指定降级配置类
+@FeignClient(value = "springcloud-tigong-ip",fallbackFactory = DeptClentServiceFallBack.class)
 //Feign的service配置。 写在这边，可以降低耦合。 并且增加代码可读性
 public interface DeptClientService {
 

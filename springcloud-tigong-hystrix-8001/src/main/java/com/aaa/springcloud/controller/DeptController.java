@@ -2,6 +2,7 @@ package com.aaa.springcloud.controller;
 
 import com.aaa.springcloud.entity.Dept;
 import com.aaa.springcloud.service.DeptService;
+import com.google.gson.Gson;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -25,18 +26,20 @@ public class DeptController {
     @GetMapping("/{id}")
     //核心注解  指定备选方案(注意：回退方法参数和返回值要和原方法一致)
     @HystrixCommand(fallbackMethod = "deptHystrix")
-    public Dept selDeptById(@PathVariable Long id) {
-        Dept dept = deptService.selDeptById(id);
+    public String selDeptById(@PathVariable String id) {
+        //String转为Long型   Long.parseLong(id);
+        Dept dept = deptService.selDeptById(Long.parseLong(id));
         if (dept == null) {
             //抛出异常，如果没有接收，也会报错
-            throw new RuntimeException("id不存在或输入错误!");
+            throw new RuntimeException("id" + id + "不存在或输入错误!");
         }
-        return dept;
+        return new Gson().toJson(dept);
     }
 
     //这个是备选方案，Hystrix配置后，出现问题可以使用这个方法
-    public Dept deptHystrix(@PathVariable Long id) {
-        return new Dept().setDeptno(id).setDname("id不存在或输入错误!").setDb_source("数据库信息不存在");
+    public String deptHystrix(@PathVariable String id) {
+        Dept dept = new Dept().setDeptno(Long.parseLong(id)).setDname("id不存在或输入错误!").setDb_source("数据库信息不存在");
+        return new Gson().toJson(dept);
     }
 
 
