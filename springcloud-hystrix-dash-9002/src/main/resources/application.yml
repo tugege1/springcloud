@@ -1,0 +1,8 @@
+server:
+  port: 9002
+
+
+#启动dashboard  这里不配置监控页面会：无法连接到命令度量流。
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: localhost
