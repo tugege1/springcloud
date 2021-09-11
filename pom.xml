@@ -27,6 +27,7 @@
         <module>springcloud-xiaofei-dept-feign</module>
         <module>springcloud-tigong-hystrix-8001</module>
         <module>springcloud-hystrix-dash-9002</module>
+        <module>springcloud-zuul-9527</module>
     </modules>
 
     <properties>

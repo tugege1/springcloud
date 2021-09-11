@@ -1,0 +1,37 @@
+#配置端口
+server:
+  port: 9527
+
+
+#配置spring-服务名ip名
+spring:
+  application:
+    name: springcloud-zuul
+
+
+#Zuul从注册中心发现服务，所以也需要注册进Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance: #修改默认描述
+    instance-id: ${spring.application.name}-zuul
+    prefer-ip-address: true # 显示ip
+
+# erurake有个详细信息，我们可以知道具体的微服务是谁构建的
+info:
+  app.name: zuul网关
+  company.name: com.aaa.tu
+
+
+
+#使用9527/服务名/路径访问，会暴露微服务名字
+#添加zuul配置
+zuul:
+  routes:
+    springcloud-provider-dept.serviceId: springcloud-tigong-ip  #真实的服务名
+    springcloud-provider-dept.path: /mydept/**  #网关，隐藏真实服务名   但是原有的路径还可以访问
+  #忽略，不能再使用这个路径访问。  这样的话就只能使用路由网关启用,*隐藏所有
+  ignored-services: "*"
+  # 设置公共的前缀
+  prefix: /Tujiji
